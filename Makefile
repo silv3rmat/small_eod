@@ -43,3 +43,9 @@ createsuperuser:
 	docker-compose run web python manage.py createsuperuser --username root --email root@example.com --noinput
 
 test-local: lint build check test
+
+swagger:
+	docker-compose run -T web python manage.py generate_swagger
+
+show_api_urls:
+	docker-compose run -T web python manage.py generate_swagger | docker run -i quay.io/watchdogpolska/yq '.paths | keys' -
