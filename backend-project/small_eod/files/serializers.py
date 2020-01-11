@@ -8,7 +8,6 @@ class FileSerializer(serializers.ModelSerializer):
     class Meta:
         model = File
         fields = [
-            "letter",
             "path",
             "name",
         ]
