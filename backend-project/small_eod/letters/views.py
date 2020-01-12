@@ -6,6 +6,7 @@ from ..files.serializers import FileSerializer
 from .serializers import LetterSerializer, DescriptionSerializer
 from django.utils.decorators import method_decorator
 
+
 class LetterViewSet(viewsets.ModelViewSet):
     queryset = Letter.objects.all()
     serializer_class = LetterSerializer
@@ -15,11 +16,20 @@ class DescriptionViewSet(viewsets.ModelViewSet):
     queryset = Description.objects.all()
     serializer_class = DescriptionSerializer
 
-@method_decorator(name='list', decorator=swagger_auto_schema(tags=['letters', 'files']))
-@method_decorator(name='create', decorator=swagger_auto_schema(tags=['letters', 'files']))
-@method_decorator(name='partial_update', decorator=swagger_auto_schema(tags=['letters', 'files']))
-@method_decorator(name='update', decorator=swagger_auto_schema(tags=['letters', 'files']))
-@method_decorator(name='destroy', decorator=swagger_auto_schema(tags=['letters', 'files']))
+
+@method_decorator(name="list", decorator=swagger_auto_schema(tags=["letters", "files"]))
+@method_decorator(
+    name="create", decorator=swagger_auto_schema(tags=["letters", "files"])
+)
+@method_decorator(
+    name="partial_update", decorator=swagger_auto_schema(tags=["letters", "files"])
+)
+@method_decorator(
+    name="update", decorator=swagger_auto_schema(tags=["letters", "files"])
+)
+@method_decorator(
+    name="destroy", decorator=swagger_auto_schema(tags=["letters", "files"])
+)
 class FileViewSet(viewsets.ModelViewSet):
     serializer_class = FileSerializer
 
